@@ -1,8 +1,10 @@
-
 ---
 title: "Why Physical AI Matters"
 description: "Understanding the importance of Physical AI in robotics"
 ---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 ## Learning Objectives
 
@@ -40,9 +42,6 @@ The human form is both a constraint and an advantage. It enables these robots to
 
 Let's look at a conceptual example of how Physical AI differs from traditional AI in practice:
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 <Tabs>
 <TabItem value="physicalai" label="Physical AI" default>
 
@@ -53,18 +52,18 @@ class HumanoidWalker:
         self.balance_controller = BalanceController()
         self.footstep_planner = FootstepPlanner()
         self.sensors = SensorArray()
-    
+
     def walk_step(self):
         # Use sensor data to maintain balance
         sensor_data = self.sensors.get_data()
         balance_correction = self.balance_controller.calculate_correction(sensor_data)
-        
+
         # Plan next footstep based on terrain
         next_step = self.footstep_planner.plan_step(sensor_data['terrain'])
-        
+
         # Execute the step with balance adjustments
         self.execute_step(next_step, balance_correction)
-        
+
         return "Step completed with balance maintained"
 ```
 
@@ -76,7 +75,7 @@ class HumanoidWalker:
 class TextProcessor:
     def __init__(self):
         self.nlp_model = NLPModel()
-    
+
     def process_text(self, text):
         # Process text in a virtual environment
         processed_result = self.nlp_model.analyze(text)
