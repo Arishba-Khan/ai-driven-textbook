@@ -41,6 +41,8 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
+          // Ensure the sidebar is displayed on all doc pages
+          sidebarCollapsible: true,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:

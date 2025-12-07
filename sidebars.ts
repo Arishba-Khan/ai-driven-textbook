@@ -25,10 +25,8 @@ const sidebars: SidebarsConfig = {
         'intro/weekly-breakdown'
       ],
       link: {
-        type: 'generated-index',
-        title: 'Introduction',
-        description: 'Getting started with Physical AI & Humanoid Robotics',
-        slug: '/intro'
+        type: 'doc',
+        id: 'intro/index'
       }
     },
     {
