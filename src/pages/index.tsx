@@ -16,12 +16,12 @@ function HomepageHeader() {
         <Heading as="h1" className="hero__title">
           {siteConfig.title}
         </Heading>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
+        <p className="hero__subtitle">A complete textbook on Physical AI paired with an intelligent chatbot that helps you understand every concept clearly and quickly.</p>
         <div className={styles.buttons}>
           <Link
-            className="button button--secondary button--lg"
+            className={clsx('button button--secondary button--lg', styles.glassMorphismButton)}
             to="/docs/intro">
-            Docusaurus Tutorial - 5min ⏱️
+            Start Reading
           </Link>
         </div>
       </div>

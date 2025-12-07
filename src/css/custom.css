@@ -149,13 +149,14 @@
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Glass morphism effect for hero section */
+/* Hero section styling to match main background */
 .hero {
-  background: radial-gradient(circle, rgba(26, 26, 26, 0.6) 0%, rgba(10, 10, 10, 0.8) 100%);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  margin-bottom: 2rem;
+  background-color: #1a1a1a;
+}
+
+[data-theme='dark'] .hero {
+  background-color: #1a1a1a;
+  color: #ffffff;
 }
 
 /* Sidebar styling for dark mode - changed from black to default grey and apply gradient bg */

@@ -1,71 +1,125 @@
 import type {ReactNode} from 'react';
 import clsx from 'clsx';
+import Link from '@docusaurus/Link';
 import Heading from '@theme/Heading';
 import styles from './styles.module.css';
 
-type FeatureItem = {
+type ModuleItem = {
   title: string;
-  Svg: React.ComponentType<React.ComponentProps<'svg'>>;
   description: ReactNode;
+  path: string;
 };
 
-const FeatureList: FeatureItem[] = [
+const ModuleList: ModuleItem[] = [
   {
-    title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    title: 'Module 1: The Robotic Nervous System (ROS 2)',
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        Understanding ROS 2 fundamentals including nodes, topics, publishers, subscribers, services, and actions for humanoid robots.
       </>
     ),
+    path: '/docs/module-1/introduction-to-ros2'
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    title: 'Module 2: The Digital Twin (Gazebo & Unity)',
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        Simulation environments for robotics including URDF/SDF robot descriptions, physics simulation, and sensor simulation techniques.
       </>
     ),
+    path: '/docs/module-2/introduction-to-gazebo'
   },
   {
-    title: 'Powered by React',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    title: 'Module 3: The AI-Robot Brain (NVIDIA Isaac™)',
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        AI-powered navigation and perception systems using Isaac Sim, VSLAM navigation, and sim-to-real transfer techniques.
       </>
     ),
+    path: '/docs/module-3/introduction-to-nvidia-isaac-sim'
+  },
+  {
+    title: 'Module 4: Vision-Language-Action (VLA)',
+    description: (
+      <>
+        Vision-Language-Action integration for cognitive robots using voice-to-action systems and LLM-based cognitive planning.
+      </>
+    ),
+    path: '/docs/module-4/voice-to-action-openai-whisper'
   },
 ];
 
-function Feature({title, Svg, description}: FeatureItem) {
+function Module({title, description, path}: ModuleItem) {
   return (
-    <div className={clsx('col col--4')}>
-      <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
-      </div>
-      <div className="text--center padding-horiz--md">
-        <Heading as="h3">{title}</Heading>
-        <p>{description}</p>
-      </div>
+    <div className={clsx('col col--3', styles.moduleCard)}>
+      <Link to={path} className={styles.moduleLink}>
+        <div className={clsx(styles.moduleBox)}>
+          <Heading as="h3" className={styles.moduleTitle}>{title}</Heading>
+          <p className={styles.moduleDescription}>{description}</p>
+        </div>
+      </Link>
     </div>
+  );
+}
+
+function ChatbotInfo(): ReactNode {
+  return (
+    <section className={styles.chatbotSection}>
+      <div className="container">
+        <div className="row">
+          <div className={clsx('col col--12', styles.chatbotCard)}>
+            <div className={styles.chatbotBox}>
+              <Heading as="h2" className={styles.chatbotTitle}>AI-Powered Learning Assistant</Heading>
+              <p className={styles.chatbotDescription}>
+                Our RAG (Retrieval-Augmented Generation) chatbot is here to help you understand Physical AI concepts with ease.
+                It has been trained specifically on this textbook content to provide accurate, contextual answers to your questions.
+                Whether you need clarification on complex topics or want to dive deeper into specific subjects,
+                our intelligent assistant can simplify content and guide your learning journey.
+              </p>
+              <div className={styles.chatbotFeatures}>
+                <div className={styles.featureItem}>
+                  <div className={styles.featureIcon}>🔍</div>
+                  <div className={styles.featureText}>
+                    <strong>Contextual Understanding</strong>
+                    <p>Grasps the context of your questions based on the textbook content</p>
+                  </div>
+                </div>
+                <div className={styles.featureItem}>
+                  <div className={styles.featureIcon}>💡</div>
+                  <div className={styles.featureText}>
+                    <strong>Content Simplification</strong>
+                    <p>Breaks down complex concepts into easy-to-understand explanations</p>
+                  </div>
+                </div>
+                <div className={styles.featureItem}>
+                  <div className={styles.featureIcon}>📚</div>
+                  <div className={styles.featureText}>
+                    <strong>Direct References</strong>
+                    <p>Provides specific references to textbook sections for further reading</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
 
 export default function HomepageFeatures(): ReactNode {
   return (
-    <section className={styles.features}>
-      <div className="container">
-        <div className="row">
-          {FeatureList.map((props, idx) => (
-            <Feature key={idx} {...props} />
-          ))}
+    <>
+      <section className={styles.features}>
+        <div className="container">
+          <div className="row">
+            {ModuleList.map((props, idx) => (
+              <Module key={idx} {...props} />
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+      <ChatbotInfo />
+    </>
   );
 }

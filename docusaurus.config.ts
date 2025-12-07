@@ -6,7 +6,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
   title: 'Learn Physical AI',
-  tagline: 'Comprehensive Textbook on Physical AI',
+  tagline: 'A complete textbook on Physical AI paired with an intelligent chatbot that helps you understand every concept clearly and quickly.',
   favicon: 'img/favicon.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -73,10 +73,6 @@ const config: Config = {
           label: 'Textbook',
         },
         {
-          type: 'color-mode-toggle',
-          position: 'right',
-        },
-        {
           href: 'https://github.com/facebook/docusaurus',
           label: 'GitHub',
           position: 'right',
@@ -91,7 +87,7 @@ const config: Config = {
           items: [
             {
               label: 'GitHub',
-              href: 'https://github.com/arishbakhan', // Replace with your actual GitHub username
+              href: 'https://github.com/Arishba-Khan', // Replace with your actual GitHub username
             },
           ],
         },
