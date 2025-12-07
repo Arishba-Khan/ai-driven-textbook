@@ -1,0 +1,162 @@
+# Content API Contract: Physical AI & Humanoid Robotics Textbook
+
+## Overview
+This document describes the interface for interacting with the textbook content programmatically. Since this is a static site, the "API" refers to the data structures used by the Docusaurus components to render content.
+
+## Content Endpoint
+`/api/content/{module}/{chapter}`
+
+### GET /api/content/{module}/{chapter}
+
+Retrieves the content of a specific chapter in the textbook.
+
+#### Path Parameters
+- `module` (string): The module identifier (e.g., "module-1", "module-2", "intro", etc.)
+- `chapter` (string): The chapter identifier (e.g., "01-introduction-to-ros2", "why-physical-ai", etc.)
+
+#### Response
+```json
+{
+  "id": "01-introduction-to-ros2",
+  "module": "module-1",
+  "title": "Introduction to ROS 2",
+  "learningObjectives": [
+    "Explain the purpose of Robot Operating System in robotics projects",
+    "Identify the key differences between ROS 1 and ROS 2",
+    "Create a basic ROS 2 workspace"
+  ],
+  "introduction": "Robot Operating System 2 (ROS 2) is the backbone of modern robotics development...",
+  "coreConcepts": {
+    "sections": [
+      {
+        "title": "What is ROS 2?",
+        "content": "ROS 2 is not actually an operating system, but rather a collection of tools...",
+        "subsections": []
+      }
+    ]
+  },
+  "codeExamples": [
+    {
+      "title": "Creating a basic ROS 2 package",
+      "language": "python",
+      "code": "#!/usr/bin/env python3\n# Basic ROS 2 Python node\nclass MinimalPublisher:\n    # Implementation here",
+      "expectedOutput": "Node started successfully with publisher",
+      "explanation": "This example shows how to create a minimal ROS 2 publisher node"
+    }
+  ],
+  "exercises": [
+    {
+      "title": "Create a ROS 2 Workspace",
+      "description": "Follow the steps to create a new ROS 2 workspace from scratch",
+      "successCriteria": [
+        "Workspace directory is created successfully",
+        "Source command runs without errors",
+        "Custom package can be built with colcon"
+      ],
+      "difficulty": "beginner"
+    }
+  ],
+  "diagrams": [
+    {
+      "title": "ROS 2 Architecture Overview",
+      "type": "graph",
+      "code": "graph TD;\n  A[Node1] --> B[Node2];\n  A --> C[Node3];\n  B --> D[Topic];\n  C --> D;",
+      "caption": "Shows how nodes communicate via topics in ROS 2"
+    }
+  ],
+  "pitfalls": [
+    "Forgetting to source the ROS 2 installation before creating a workspace",
+    "Mixing ROS 1 and ROS 2 commands in the same session"
+  ],
+  "summary": [
+    "ROS 2 is the framework for developing robotics applications",
+    "It uses a distributed architecture with nodes and topics",
+    "Setting up the environment correctly is crucial for success"
+  ],
+  "furtherReading": [
+    "ROS 2 Documentation: https://docs.ros.org/",
+    "ROS 2 Tutorials: https://docs.ros.org/en/humble/Tutorials.html"
+  ],
+  "wordCount": 1200
+}
+```
+
+#### Error Responses
+- `404 Not Found`: Module or chapter does not exist
+- `500 Internal Server Error`: Content file is corrupted or inaccessible
+
+## Search Endpoint
+`/api/search`
+
+### POST /api/search
+
+Searches through the textbook content for specific terms.
+
+#### Request
+```json
+{
+  "query": "topic publisher subscriber",
+  "filters": {
+    "modules": ["module-1"],
+    "minDifficulty": "beginner",
+    "maxDifficulty": "advanced"
+  },
+  "limit": 10
+}
+```
+
+#### Response
+```json
+{
+  "results": [
+    {
+      "id": "04-subscribers-and-callbacks",
+      "module": "module-1",
+      "title": "Subscribers and Callbacks",
+      "snippet": "In ROS 2, subscribers listen to topics published by other nodes. When a message arrives...",
+      "relevance": 0.95
+    }
+  ],
+  "totalResults": 1
+}
+```
+
+## Content Validation Endpoint
+`/api/validate`
+
+### POST /api/validate
+
+Validates content against the textbook standards.
+
+#### Request
+```json
+{
+  "content": {
+    "title": "My New Chapter",
+    "introduction": "This is the introduction...",
+    "coreConcepts": "These are the core concepts...",
+    "codeExamples": [
+      {
+        "code": "print('Hello, ROS!')",
+        "language": "python",
+        "expectedOutput": "Hello, ROS!"
+      }
+    ]
+  }
+}
+```
+
+#### Response
+```json
+{
+  "isValid": true,
+  "errors": [],
+  "warnings": [
+    "Word count is below recommended minimum (750 words vs 800-1500)"
+  ],
+  "suggestions": [
+    "Consider adding more detail to the core concepts section",
+    "Add at least one exercise with success criteria"
+  ]
+}
+```

@@ -2,46 +2,30 @@
 sidebar_position: 1
 ---
 
-# Tutorial Intro
+# Physical AI & Humanoid Robotics: Textbook Introduction
 
-Let's discover **Docusaurus in less than 5 minutes**.
+Welcome to the comprehensive textbook on Physical AI & Humanoid Robotics. This educational resource covers the complete 13-week curriculum designed to take you from ROS 2 basics to implementing vision-language-action systems for humanoid robots.
+
+## Course Overview
+
+This textbook is structured to provide a complete learning path through four main modules:
+
+- **Module 1**: The Robotic Nervous System (ROS 2)
+- **Module 2**: The Digital Twin (Gazebo & Unity)
+- **Module 3**: The AI-Robot Brain (NVIDIA Isaac™)
+- **Module 4**: Vision-Language-Action (VLA) Systems
 
 ## Getting Started
 
-Get started by **creating a new site**.
+Begin your learning journey with our structured approach:
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+1. [Why Physical AI?](intro/why-physical-ai) - Understanding the importance of physical intelligence in robotics
+2. [Quarter Overview](intro/quarter-overview) - Complete course timeline and expectations
+3. [Learning Outcomes](intro/learning-outcomes) - Specific skills and knowledge you'll gain
+4. [Weekly Breakdown](intro/weekly-breakdown) - Detailed week-by-week schedule of topics and activities
 
-### What you'll need
+## Navigation
 
-- [Node.js](https://nodejs.org/en/download/) version 20.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+Use the sidebar to navigate through the complete textbook content, organized by modules and topics. Each section builds upon the previous ones, creating a coherent learning experience that culminates in the capstone project.
 
-## Generate a new site
-
-Generate a new Docusaurus site using the **classic template**.
-
-The classic template will automatically be added to your project after you run the command:
-
-```bash
-npm init docusaurus@latest my-website classic
-```
-
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
-
-The command also installs all necessary dependencies you need to run Docusaurus.
-
-## Start your site
-
-Run the development server:
-
-```bash
-cd my-website
-npm run start
-```
-
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
-
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
-
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+Begin with the [Why Physical AI?](intro/why-physical-ai) section to understand the foundations of this exciting field.

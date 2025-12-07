@@ -31,7 +31,12 @@
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+1. **Clarity First**: All technical explanations must be accessible to students with Python and basic AI knowledge but no robotics experience
+2. **Encouraging Tone**: Content maintains warm, mentor-like, supportive tone throughout like a helpful teacher
+3. **Hands-on Mandate**: Every major topic includes complete, copy-paste-ready code examples with clear comments and expected output
+4. **Zero Fluff, Maximum Value**: Every word must teach - no filler content; all content must directly contribute to learning outcomes
+5. **Verbatim Content Requirements**: All hardware tables and syllabus content reproduced VERBATIM from the syllabus - no changes allowed
+6. **Complete Syllabus Coverage**: 100% syllabus coverage is mandatory - every bullet from syllabus appears as its own section
 
 ## Project Structure
 

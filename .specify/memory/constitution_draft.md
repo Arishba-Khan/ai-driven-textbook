@@ -2,7 +2,7 @@
      Version change: N/A (new constitution) → 1.0.0
      Added principles: Clarity First, Encouraging Tone, Hands-on Mandate, Zero Fluff Maximum Value, Verbatim Content Requirements, Complete Syllabus Coverage
      Added sections: Technical Standards, Success Criteria
-     Templates requiring updates: ✅ .specify/templates/plan-template.md, ✅ .specify/templates/spec-template.md, ✅ .specify/templates/tasks-template.md, ✅ README.md
+     Templates requiring updates: N/A (new project)
      Follow-up TODOs: RATIFICATION_DATE to be determined
 -->
 

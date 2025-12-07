@@ -49,8 +49,8 @@ description: "Task list template for feature implementation"
 **Purpose**: Project initialization and basic structure
 
 - [ ] T001 Create project structure per implementation plan
-- [ ] T002 Initialize [language] project with [framework] dependencies
-- [ ] T003 [P] Configure linting and formatting tools
+- [ ] T002 Initialize documentation framework with Docusaurus
+- [ ] T003 [P] Configure linting and formatting tools for Markdown content
 
 ---
 
@@ -62,12 +62,12 @@ description: "Task list template for feature implementation"
 
 Examples of foundational tasks (adjust based on your project):
 
-- [ ] T004 Setup database schema and migrations framework
-- [ ] T005 [P] Implement authentication/authorization framework
-- [ ] T006 [P] Setup API routing and middleware structure
-- [ ] T007 Create base models/entities that all stories depend on
-- [ ] T008 Configure error handling and logging infrastructure
-- [ ] T009 Setup environment configuration management
+- [ ] T004 Setup documentation navigation structure per syllabus modules
+- [ ] T005 [P] Configure textbook styling with mobile and dark mode support
+- [ ] T006 [P] Setup basic chapter template following required structure
+- [ ] T007 Create base components for code examples and exercises
+- [ ] T008 Configure Mermaid diagram rendering
+- [ ] T009 Setup environment for content validation and build process
 
 **Checkpoint**: Foundation ready - user story implementation can now begin in parallel
 
@@ -216,26 +216,26 @@ Task: "Create [Entity2] model in src/models/[entity2].py"
 1. Complete Phase 1: Setup
 2. Complete Phase 2: Foundational (CRITICAL - blocks all stories)
 3. Complete Phase 3: User Story 1
-4. **STOP and VALIDATE**: Test User Story 1 independently
-5. Deploy/demo if ready
+4. **STOP and VALIDATE**: Ensure User Story 1 meets all constitution requirements independently
+5. Publish/demo if ready
 
 ### Incremental Delivery
 
 1. Complete Setup + Foundational → Foundation ready
-2. Add User Story 1 → Test independently → Deploy/Demo (MVP!)
-3. Add User Story 2 → Test independently → Deploy/Demo
-4. Add User Story 3 → Test independently → Deploy/Demo
-5. Each story adds value without breaking previous stories
+2. Add User Story 1 → Validate constitution compliance → Publish/Demo (MVP!)
+3. Add User Story 2 → Validate constitution compliance → Publish/Demo
+4. Add User Story 3 → Validate constitution compliance → Publish/Demo
+5. Each story adds value while maintaining textbook quality standards
 
 ### Parallel Team Strategy
 
-With multiple developers:
+With multiple content creators:
 
 1. Team completes Setup + Foundational together
 2. Once Foundational is done:
-   - Developer A: User Story 1
-   - Developer B: User Story 2
-   - Developer C: User Story 3
+   - Creator A: User Story 1 (e.g., Module 1: ROS 2)
+   - Creator B: User Story 2 (e.g., Module 2: Gazebo & Unity)
+   - Creator C: User Story 3 (e.g., Module 3: NVIDIA Isaac™)
 3. Stories complete and integrate independently
 
 ---

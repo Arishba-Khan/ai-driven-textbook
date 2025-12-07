@@ -84,16 +84,16 @@
 
 ### Functional Requirements
 
-- **FR-001**: System MUST [specific capability, e.g., "allow users to create accounts"]
-- **FR-002**: System MUST [specific capability, e.g., "validate email addresses"]  
-- **FR-003**: Users MUST be able to [key interaction, e.g., "reset their password"]
-- **FR-004**: System MUST [data requirement, e.g., "persist user preferences"]
-- **FR-005**: System MUST [behavior, e.g., "log all security events"]
+- **FR-001**: Content MUST follow the exact chapter structure: Overview → Core Concepts → Hands-on Examples → Key Takeaways → Quick Exercises
+- **FR-002**: All terminology MUST be bolded and explained immediately in simple terms on first use
+- **FR-003**: All diagrams MUST be created using Mermaid and all tables MUST be in clean Markdown
+- **FR-004**: Code examples MUST be testable with clear comments and expected output shown
+- **FR-005**: Hardware tables MUST be reproduced VERBATIM from the syllabus - no changes allowed
+- **FR-006**: Content MUST be accessible to students with Python and basic AI knowledge but no robotics experience
 
 *Example of marking unclear requirements:*
 
-- **FR-006**: System MUST authenticate users via [NEEDS CLARIFICATION: auth method not specified - email/password, SSO, OAuth?]
-- **FR-007**: System MUST retain user data for [NEEDS CLARIFICATION: retention period not specified]
+- **FR-007**: System MUST provide [NEEDS CLARIFICATION: specific content not detailed in syllabus]
 
 ### Key Entities *(include if feature involves data)*
 

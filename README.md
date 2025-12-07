@@ -1,6 +1,6 @@
-# Website
+# Physical AI & Humanoid Robotics Textbook
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+This educational website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator designed for documentation and textbooks.
 
 ## Installation
 
@@ -39,3 +39,14 @@ GIT_USER=<Your GitHub username> yarn deploy
 ```
 
 If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+
+## Project Constitution
+
+This project follows the principles outlined in `.specify/memory/constitution.md`:
+
+- **Clarity First**: Crystal-clear explanations for beginners in robotics
+- **Encouraging Tone**: Supportive mentor voice throughout
+- **Hands-on Mandate**: Complete, copy-paste-ready code examples
+- **Zero Fluff**: Every word must teach - no filler content
+- **Complete Syllabus Coverage**: 100% coverage of required content
+- **Verbatim Requirements**: Hardware tables reproduced exactly from syllabus
