@@ -18,7 +18,7 @@
       "maxDuration": 10
     },
     "rag_backend/api/index.py": {
-      "runtime": "python3.11"
+      "maxDuration": 15
     }
   }
 }
