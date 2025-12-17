@@ -6,19 +6,12 @@
     {
       "source": "/api/auth/:path*",
       "destination": "/auth-backend/src/server.ts"
-    },
-    {
-      "source": "/api/rag/:path*",
-      "destination": "/rag_backend/api/index.py"
     }
   ],
   "functions": {
     "auth-backend/src/server.ts": {
       "memory": 1024,
       "maxDuration": 10
-    },
-    "rag_backend/api/index.py": {
-      "runtime": "python3.9"
     }
   }
 }
