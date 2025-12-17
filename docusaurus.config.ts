@@ -13,9 +13,6 @@ const config: Config = {
   future: {
     v4: true, // Improve compatibility with the upcoming Docusaurus v4
   },
-  customFields: {
-    ragApiUrl: process.env.RAG_API_URL, 
-  },
 
   // Set the production url of your site here
   url: 'https://your-docusaurus-site.example.com',

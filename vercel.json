@@ -5,13 +5,20 @@
   "rewrites": [
     {
       "source": "/api/auth/:path*",
-      "destination": "/auth-backend/src/server.ts"
+      "destination": "/api/auth"
+    },
+    {
+      "source": "/api/rag/:path*",
+      "destination": "/api/rag"
     }
   ],
   "functions": {
     "auth-backend/src/server.ts": {
       "memory": 1024,
       "maxDuration": 10
+    },
+    "rag_backend/api/index.py": {
+      "runtime": "python3.11"
     }
   }
 }
