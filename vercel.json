@@ -5,11 +5,11 @@
   "rewrites": [
     {
       "source": "/api/auth/:path*",
-      "destination": "/api/auth"
+      "destination": "/auth-backend/src/server.ts"
     },
     {
       "source": "/api/rag/:path*",
-      "destination": "/api/rag"
+      "destination": "/rag_backend/api/index.py"
     }
   ],
   "functions": {

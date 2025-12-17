@@ -8,7 +8,7 @@ from mangum import Mangum
 
 
 # Create the Mangum adapter for serverless deployment
-handler = Mangum(app)
+handler = Mangum(app, api_gateway_base_path="/api/rag")
 
 # For Vercel Python runtime
 def main(event, context):

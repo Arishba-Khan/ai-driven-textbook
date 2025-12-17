@@ -70,7 +70,7 @@ const ChatWidget: React.FC = () => {
     }]);
 
     try {
-      const response = await fetch('http://localhost:8000/chat/stream', {
+      const response = await fetch('/api/rag/chat/stream', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
