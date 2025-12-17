@@ -1,0 +1,191 @@
+# API Contract for Better Auth Integration
+
+## Authentication Endpoints
+
+### POST /api/auth/register
+Registers a new user with credentials and background information.
+
+**Request**:
+```json
+{
+  "email": "user@example.com",
+  "password": "SecurePass123!",
+  "experienceLevel": "beginner",
+  "programmingLanguages": "Python,JavaScript",
+  "roboticsExperience": "none",
+  "gpuAvailable": true,
+  "hardwareAccess": "simulation only"
+}
+```
+
+**Response (Success - 201)**:
+```json
+{
+  "id": "user-uuid",
+  "email": "user@example.com",
+  "createdAt": "2025-12-15T10:30:00Z",
+  "experienceLevel": "beginner",
+  "programmingLanguages": "Python,JavaScript",
+  "roboticsExperience": "none",
+  "gpuAvailable": true,
+  "hardwareAccess": "simulation only",
+  "sessionToken": "session-jwt-token"
+}
+```
+
+**Response (Error - 400)**:
+```json
+{
+  "error": "ValidationError",
+  "message": "Validation failed: email already exists or password does not meet requirements"
+}
+```
+
+### POST /api/auth/login
+Logs in an existing user with credentials.
+
+**Request**:
+```json
+{
+  "email": "user@example.com",
+  "password": "SecurePass123!"
+}
+```
+
+**Response (Success - 200)**:
+```json
+{
+  "id": "user-uuid",
+  "email": "user@example.com",
+  "experienceLevel": "beginner",
+  "programmingLanguages": "Python,JavaScript",
+  "roboticsExperience": "none",
+  "gpuAvailable": true,
+  "hardwareAccess": "simulation only",
+  "sessionToken": "session-jwt-token"
+}
+```
+
+**Response (Error - 400/401)**:
+```json
+{
+  "error": "AuthenticationError",
+  "message": "Invalid email or password"
+}
+```
+
+### POST /api/auth/logout
+Logs out the current user.
+
+**Headers**:
+```
+Authorization: Bearer {sessionToken}
+```
+
+**Response (Success - 200)**:
+```json
+{
+  "message": "Successfully logged out"
+}
+```
+
+### GET /api/auth/me
+Returns the authenticated user's profile information.
+
+**Headers**:
+```
+Authorization: Bearer {sessionToken}
+```
+
+**Response (Success - 200)**:
+```json
+{
+  "id": "user-uuid",
+  "email": "user@example.com",
+  "createdAt": "2025-12-15T10:30:00Z",
+  "updatedAt": "2025-12-15T11:45:00Z",
+  "experienceLevel": "beginner",
+  "programmingLanguages": "Python,JavaScript",
+  "roboticsExperience": "none",
+  "gpuAvailable": true,
+  "hardwareAccess": "simulation only"
+}
+```
+
+### PATCH /api/auth/profile
+Updates the authenticated user's profile information.
+
+**Headers**:
+```
+Authorization: Bearer {sessionToken}
+```
+
+**Request**:
+```json
+{
+  "experienceLevel": "intermediate",
+  "hardwareAccess": "has actual robot"
+}
+```
+
+**Response (Success - 200)**:
+```json
+{
+  "id": "user-uuid",
+  "email": "user@example.com",
+  "createdAt": "2025-12-15T10:30:00Z",
+  "updatedAt": "2025-12-15T12:00:00Z",
+  "experienceLevel": "intermediate",
+  "programmingLanguages": "Python,JavaScript",
+  "roboticsExperience": "none",
+  "gpuAvailable": true,
+  "hardwareAccess": "has actual robot"
+}
+```
+
+### GET /api/health
+Health check endpoint to verify the auth service is running.
+
+**Response (Success - 200)**:
+```json
+{
+  "status": "healthy",
+  "timestamp": "2025-12-15T10:30:00Z",
+  "service": "auth-service"
+}
+```
+
+### POST /api/auth/forgot-password
+Initiates the password reset process.
+
+**Request**:
+```json
+{
+  "email": "user@example.com"
+}
+```
+
+**Response (Success - 200)**:
+```json
+{
+  "message": "Password reset email sent if account exists"
+}
+```
+
+### POST /api/auth/reset-password
+Resets the user's password with a valid token.
+
+**Request**:
+```json
+{
+  "token": "reset-token",
+  "newPassword": "NewSecurePass456!"
+}
+```
+
+**Response (Success - 200)**:
+```json
+{
+  "message": "Password successfully reset"
+}
+```

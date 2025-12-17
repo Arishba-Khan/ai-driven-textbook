@@ -1,40 +1,82 @@
 <!-- SYNC IMPACT REPORT:
-     Version change: N/A (new constitution) → 1.0.0
-     Added principles: Clarity First, Encouraging Tone, Hands-on Mandate, Zero Fluff Maximum Value, Verbatim Content Requirements, Complete Syllabus Coverage
-     Added sections: Technical Standards, Success Criteria
-     Templates requiring updates: ✅ .specify/templates/plan-template.md, ✅ .specify/templates/spec-template.md, ✅ .specify/templates/tasks-template.md, ✅ README.md
-     Follow-up TODOs: RATIFICATION_DATE to be determined
+     Version change: 1.1.0 → 2.0.0
+     Removed sections: Original textbook-specific principles
+     Added sections: RAG Chatbot Backend Service principles
+     Templates requiring updates: ⚠ .specify/templates/plan-template.md, ⚠ .specify/templates/spec-template.md, ⚠ .specify/templates/tasks-template.md, ⚠ README.md
+     Follow-up TODOs: Manual updates needed for all templates to reflect new backend focus
 -->
 
-# Physical AI & Humanoid Robotics Textbook Constitution
+# Physical AI & Humanoid Robotics RAG Chatbot Backend Constitution
 
 ## Core Principles
 
-### Clarity First
-Crystal-clear explanations using simple English for complete beginners in robotics; All concepts must be accessible to students with Python and basic AI knowledge but no robotics experience
+### Production-Ready Scalability
+Build a production-ready, scalable backend that empowers the textbook with an intelligent tutor; The RAG chatbot must handle concurrent users with consistent response times and minimal downtime
 
-### Encouraging Tone
-Maintain warm, mentor-like, supportive tone throughout like a helpful teacher who believes in the student; Use "You've got this — let's build it together!" voice
+### Beginner-Friendly Explanations
+Generate clear, beginner-friendly explanations using Groq's fast LLMs; All responses must be accessible to students with Python and basic AI knowledge but no advanced robotics experience
 
-### Hands-on Mandate
-EVERY major topic MUST include complete, copy-paste-ready code examples with clear comments and expected output shown
+### Intelligent Tutor Experience
+Provide an intelligent tutoring system that enhances learning through interactive conversations; Students should feel supported by an AI tutor that understands their context and learning pace
 
-### Zero Fluff, Maximum Value
-Every word must teach - no filler content; All content must directly contribute to learning outcomes
+### Accuracy and Groundedness
+All answers must be firmly grounded in retrieved textbook content from the Qdrant vector database; The system must strictly cite sources and clearly state when it cannot find relevant information
 
-### Verbatim Content Requirements
-All hardware tables and syllabus content MUST be reproduced VERBATIM from the syllabus - no changes allowed; Introduction sections must be included verbatim
+## Architecture & Tech Stack Principles
 
-### Complete Syllabus Coverage
-100% syllabus coverage is mandatory - every bullet from syllabus appears as its own section; All modules (ROS 2, Gazebo & Unity, NVIDIA Isaac™, VLA) must be covered comprehensively
+### FastAPI Async-First Design
+Use FastAPI for its async-first design, ideal for I/O-heavy operations like LLM calls and vector DB queries; All endpoints must leverage asynchronous patterns for optimal performance
 
-## Technical Standards
-Chapter Structure: Overview → Core Concepts → Hands-on Examples → Key Takeaways → Quick Exercises; Terminology: First use is bolded and explained immediately in simple terms; Visuals: All diagrams in Mermaid, all tables in clean Markdown; Code Examples: Always testable with clear comments; Hardware Tables: Reproduced verbatim from syllabus
+### OpenAI Agents SDK Integration
+Use the OpenAI Agents SDK for lightweight, powerful agent patterns compatible with Groq and other LLM providers; Implement robust agent workflows that handle various conversation scenarios
+
+### Component Separation
+Organize backend code in `/rag_backend` folder with clear separation of concerns between retrieval, generation, and session management; Each module must have well-defined interfaces and responsibilities
+
+### Vector Database Excellence
+Leverage Qdrant Cloud (Free Tier) for efficient vector storage and retrieval of textbook content; All embeddings must be pre-populated and properly indexed for optimal search performance
+
+### Session Management
+Utilize Neon Serverless PostgreSQL (Free Tier) for reliable conversation memory and session persistence; Ensure session data is stored securely with appropriate cleanup policies
+
+## Frontend Integration Principles
+
+### Clean API Design
+Expose a clean API for a floating chat widget to be embedded in the Docusaurus site; API endpoints must follow RESTful principles with comprehensive documentation
+
+### Real-time Communication
+Implement streaming responses to the frontend for enhanced user experience; All API responses should include appropriate headers and status codes
+
+### Dual-Mode RAG Support
+Handle both general questions and questions about user-selected text from the book through a dual-mode RAG endpoint; The system must differentiate between these modes appropriately
+
+## Mandatory Technical Standards
+
+### Environment Configuration
+All secrets (API keys, DB URLs) must be managed via environment variables using Pydantic settings; No hardcoded credentials or API keys are allowed in the source code
+
+### Async Patterns Implementation
+Utilize asynchronous patterns in FastAPI for non-blocking operations; All I/O-bound operations should be properly awaited to prevent blocking
+
+### Performance Optimization
+Optimize response times to ensure answers are delivered within seconds; Implement efficient caching mechanisms where appropriate to improve performance
+
+### Error Handling
+Implement comprehensive error handling with appropriate logging and graceful degradation; All error responses must be informative but not expose sensitive information
 
 ## Success Criteria
-100% syllabus coverage - every bullet from syllabus appears as its own section; Every chapter follows the exact required structure; All hardware tables reproduced character-for-character; Minimum 12 complete, copy-paste-ready code examples; Site builds perfectly with zero errors; Mobile experience is flawless, dark mode perfect; A student with Python + basic AI knowledge can confidently start building humanoid robots after reading
+
+1. A student can highlight a complex paragraph about "URDF," ask "Can you simplify this?", and receive a clear, concise explanation based on the book's content within seconds
+2. The backend service handles concurrent users without performance degradation
+3. All responses are properly cited and grounded in textbook content
+4. The API supports both general and context-specific queries seamlessly
+5. Session memory persists across conversation turns appropriately
+6. The system correctly indicates when it cannot find relevant information
+7. Response streaming provides a smooth user experience
+8. All security best practices are followed for credential management
 
 ## Governance
-All PRs/reviews must verify constitution compliance; Content must follow required chapter structure; Code examples must be tested and functional; Syllabus coverage must be verified; Changes to hardware tables must match syllabus exactly
 
-**Version**: 1.0.0 | **Ratified**: TODO(RATIFICATION_DATE): Original adoption date unknown | **Last Amended**: 2025-12-07
+All PRs/reviews must verify constitution compliance for RAG backend implementation; Code must follow async-first principles with proper error handling; API endpoints must be documented and tested; Changes to database schema must be handled with proper migration strategies; Authentication integration must follow security best practices; All components must be deployable with appropriate monitoring and logging
+
+**Version**: 2.0.0 | **Ratified**: 2025-12-17 | **Last Amended**: 2025-12-17

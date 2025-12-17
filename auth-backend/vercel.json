@@ -1,0 +1,14 @@
+{
+  "functions": {
+    "src/server.ts": {
+      "memory": 1024,
+      "maxDuration": 10
+    }
+  },
+  "routes": [
+    {
+      "src": "/api/auth/(.*)",
+      "dest": "/src/server.ts"
+    }
+  ]
+}

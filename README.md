@@ -44,9 +44,9 @@ If you are using GitHub pages for hosting, this command is a convenient way to b
 
 This project follows the principles outlined in `.specify/memory/constitution.md`:
 
-- **Clarity First**: Crystal-clear explanations for beginners in robotics
-- **Encouraging Tone**: Supportive mentor voice throughout
-- **Hands-on Mandate**: Complete, copy-paste-ready code examples
-- **Zero Fluff**: Every word must teach - no filler content
-- **Complete Syllabus Coverage**: 100% coverage of required content
-- **Verbatim Requirements**: Hardware tables reproduced exactly from syllabus
+- **Production-Ready Scalability**: Backend built for concurrent users with consistent performance
+- **Beginner-Friendly Explanations**: Responses accessible to students with Python and basic AI knowledge
+- **Intelligent Tutor Experience**: Interactive conversational system that enhances learning
+- **Accuracy and Groundedness**: All answers firmly grounded in textbook content with proper citations
+- **FastAPI Async-First Design**: Leveraging asynchronous patterns for optimal performance
+- **Clean API Design**: RESTful principles with comprehensive documentation

@@ -1,0 +1,24 @@
+{
+  "buildCommand": "npm run build:all",
+  "outputDirectory": "build",
+  "framework": "docusaurus",
+  "rewrites": [
+    {
+      "source": "/api/auth/:path*",
+      "destination": "/api/auth"
+    },
+    {
+      "source": "/api/rag/:path*",
+      "destination": "/api/rag"
+    }
+  ],
+  "functions": {
+    "auth-backend/src/server.ts": {
+      "memory": 1024,
+      "maxDuration": 10
+    },
+    "rag_backend/api/index.py": {
+      "runtime": "python3.11"
+    }
+  }
+}

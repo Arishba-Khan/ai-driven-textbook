@@ -25,21 +25,21 @@ description: "Task list template for feature implementation"
 - **Mobile**: `api/src/`, `ios/src/` or `android/src/`
 - Paths shown below assume single project - adjust based on plan.md structure
 
-<!-- 
+<!--
   ============================================================================
   IMPORTANT: The tasks below are SAMPLE TASKS for illustration purposes only.
-  
+
   The /sp.tasks command MUST replace these with actual tasks based on:
   - User stories from spec.md (with their priorities P1, P2, P3...)
   - Feature requirements from plan.md
   - Entities from data-model.md
   - Endpoints from contracts/
-  
+
   Tasks MUST be organized by user story so each story can be:
   - Implemented independently
   - Tested independently
   - Delivered as an MVP increment
-  
+
   DO NOT keep these sample tasks in the generated tasks.md file.
   ============================================================================
 -->
@@ -48,9 +48,9 @@ description: "Task list template for feature implementation"
 
 **Purpose**: Project initialization and basic structure
 
-- [ ] T001 Create project structure per implementation plan
-- [ ] T002 Initialize documentation framework with Docusaurus
-- [ ] T003 [P] Configure linting and formatting tools for Markdown content
+- [ ] T001 Create project structure in `/rag_backend` with proper uv environment
+- [ ] T002 Initialize FastAPI application with proper async configuration
+- [ ] T003 [P] Configure environment variables using Pydantic Settings
 
 ---
 
@@ -62,12 +62,12 @@ description: "Task list template for feature implementation"
 
 Examples of foundational tasks (adjust based on your project):
 
-- [ ] T004 Setup documentation navigation structure per syllabus modules
-- [ ] T005 [P] Configure textbook styling with mobile and dark mode support
-- [ ] T006 [P] Setup basic chapter template following required structure
-- [ ] T007 Create base components for code examples and exercises
-- [ ] T008 Configure Mermaid diagram rendering
-- [ ] T009 Setup environment for content validation and build process
+- [ ] T004 Setup Qdrant vector database connection and configuration
+- [ ] T005 [P] Configure Neon Serverless PostgreSQL for conversation storage
+- [ ] T006 [P] Setup Groq API client with proper error handling
+- [ ] T007 Create data models for conversations and user sessions
+- [ ] T008 Configure OpenAI Agents SDK with FastAPI integration
+- [ ] T009 Setup environment validation and security best practices
 
 **Checkpoint**: Foundation ready - user story implementation can now begin in parallel
 
@@ -88,12 +88,12 @@ Examples of foundational tasks (adjust based on your project):
 
 ### Implementation for User Story 1
 
-- [ ] T012 [P] [US1] Create [Entity1] model in src/models/[entity1].py
-- [ ] T013 [P] [US1] Create [Entity2] model in src/models/[entity2].py
-- [ ] T014 [US1] Implement [Service] in src/services/[service].py (depends on T012, T013)
-- [ ] T015 [US1] Implement [endpoint/feature] in src/[location]/[file].py
-- [ ] T016 [US1] Add validation and error handling
-- [ ] T017 [US1] Add logging for user story 1 operations
+- [ ] T012 [P] [US1] Create Conversation and Message models in rag_backend/models/conversation.py
+- [ ] T013 [P] [US1] Create Session and User models in rag_backend/models/session.py
+- [ ] T014 [US1] Implement Qdrant retrieval service in rag_backend/services/retrieval.py
+- [ ] T015 [US1] Implement conversation management in rag_backend/services/conversation.py
+- [ ] T016 [US1] Create dual-mode RAG endpoint in rag_backend/api/v1/rag.py
+- [ ] T017 [US1] Add streaming response functionality with proper error handling
 
 **Checkpoint**: At this point, User Story 1 should be fully functional and testable independently
 
@@ -180,8 +180,8 @@ Examples of foundational tasks (adjust based on your project):
 
 - Tests (if included) MUST be written and FAIL before implementation
 - Models before services
-- Services before endpoints
-- Core implementation before integration
+- Services before API endpoints
+- Core RAG functionality before frontend integration
 - Story complete before moving to next priority
 
 ### Parallel Opportunities

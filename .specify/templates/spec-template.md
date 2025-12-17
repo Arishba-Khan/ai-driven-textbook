@@ -1,8 +1,8 @@
 # Feature Specification: [FEATURE NAME]
 
-**Feature Branch**: `[###-feature-name]`  
-**Created**: [DATE]  
-**Status**: Draft  
+**Feature Branch**: `[###-feature-name]`
+**Created**: [DATE]
+**Status**: Draft
 **Input**: User description: "$ARGUMENTS"
 
 ## User Scenarios & Testing *(mandatory)*
@@ -11,7 +11,7 @@
   IMPORTANT: User stories should be PRIORITIZED as user journeys ordered by importance.
   Each user story/journey must be INDEPENDENTLY TESTABLE - meaning if you implement just ONE of them,
   you should still have a viable MVP (Minimum Viable Product) that delivers value.
-  
+
   Assign priorities (P1, P2, P3, etc.) to each story, where P1 is the most critical.
   Think of each story as a standalone slice of functionality that can be:
   - Developed independently
@@ -84,12 +84,12 @@
 
 ### Functional Requirements
 
-- **FR-001**: Content MUST follow the exact chapter structure: Overview → Core Concepts → Hands-on Examples → Key Takeaways → Quick Exercises
-- **FR-002**: All terminology MUST be bolded and explained immediately in simple terms on first use
-- **FR-003**: All diagrams MUST be created using Mermaid and all tables MUST be in clean Markdown
-- **FR-004**: Code examples MUST be testable with clear comments and expected output shown
-- **FR-005**: Hardware tables MUST be reproduced VERBATIM from the syllabus - no changes allowed
-- **FR-006**: Content MUST be accessible to students with Python and basic AI knowledge but no robotics experience
+- **FR-001**: Backend MUST support dual-mode RAG queries for both general and context-specific questions from textbook content
+- **FR-002**: System MUST implement conversation memory using Neon Serverless PostgreSQL for coherent multi-turn dialogues
+- **FR-003**: All answers MUST be grounded in retrieved textbook content from Qdrant vector database with proper citations
+- **FR-004**: API responses MUST be streamed for improved user experience with appropriate headers and status codes
+- **FR-005**: All secrets (API keys, DB URLs) MUST be managed via environment variables using Pydantic settings
+- **FR-006**: System MUST differentiate between questions it can answer from textbook content versus those requiring external knowledge
 
 *Example of marking unclear requirements:*
 
@@ -109,7 +109,8 @@
 
 ### Measurable Outcomes
 
-- **SC-001**: [Measurable metric, e.g., "Users can complete account creation in under 2 minutes"]
-- **SC-002**: [Measurable metric, e.g., "System handles 1000 concurrent users without degradation"]
-- **SC-003**: [User satisfaction metric, e.g., "90% of users successfully complete primary task on first attempt"]
-- **SC-004**: [Business metric, e.g., "Reduce support tickets related to [X] by 50%"]
+- **SC-001**: Student can highlight complex text, ask for simplification, and receive a clear explanation within 3 seconds
+- **SC-002**: Backend handles at least 50 concurrent users without performance degradation
+- **SC-003**: 95% of responses are properly grounded in textbook content with citations provided
+- **SC-004**: API maintains 99% uptime during peak usage hours
+- **SC-005**: All sensitive data and API keys are securely managed without exposure in source code
