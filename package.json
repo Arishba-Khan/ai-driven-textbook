@@ -17,7 +17,8 @@
     "build:all": "npm run build && cd auth-backend && npm run build",
     "dev": "npm run dev:all",
     "dev:backend": "npm --prefix auth-backend run dev",
-    "dev:all": "concurrently \"npm run start\" \"npm run dev:backend\""
+    "dev:rag": "cd rag_backend && .venv\\Scripts\\python -m uvicorn app.main:app --reload --port 8000",
+    "dev:all": "concurrently \"npm run start\" \"npm run dev:backend\" \"npm run dev:rag\""
   },
   "dependencies": {
     "@docusaurus/core": "3.9.2",
