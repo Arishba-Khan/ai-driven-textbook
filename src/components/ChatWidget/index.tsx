@@ -19,7 +19,10 @@ const generateSessionId = () => {
   return 'session-' + Math.random().toString(36).substr(2, 9);
 };
 
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+
 const ChatWidget: React.FC = () => {
+  const { siteConfig } = useDocusaurusContext();
   const [isOpen, setIsOpen] = useState(false);
   const [sessionId] = useState(generateSessionId);
   const [messages, setMessages] = useState<Message[]>([
@@ -70,7 +73,8 @@ const ChatWidget: React.FC = () => {
     }]);
 
     try {
-      const response = await fetch('/api/rag/chat/stream', {
+      const apiUrl = (siteConfig.customFields?.ragApiUrl as string) || 'http://localhost:8000';
+      const response = await fetch(`${apiUrl}/chat/stream`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
