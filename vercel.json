@@ -1,17 +1,5 @@
 {
-  "buildCommand": "npm run build:all",
+  "buildCommand": "npm run build",
   "outputDirectory": "build",
-  "framework": "docusaurus",
-  "rewrites": [
-    {
-      "source": "/api/auth/:path*",
-      "destination": "/auth-backend/src/server.ts"
-    }
-  ],
-  "functions": {
-    "auth-backend/src/server.ts": {
-      "memory": 1024,
-      "maxDuration": 10
-    }
-  }
+  "framework": "docusaurus"
 }
