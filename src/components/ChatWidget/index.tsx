@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import clsx from 'clsx';
 import styles from './styles.module.css';
 
@@ -20,6 +21,8 @@ const generateSessionId = () => {
 };
 
 const ChatWidget: React.FC = () => {
+  const { siteConfig } = useDocusaurusContext();
+  const backendUrl = siteConfig.customFields?.ragBackendUrl as string;
   const [isOpen, setIsOpen] = useState(false);
   const [sessionId] = useState(generateSessionId);
   const [messages, setMessages] = useState<Message[]>([
@@ -70,7 +73,7 @@ const ChatWidget: React.FC = () => {
     }]);
 
     try {
-      const response = await fetch('/api/rag/chat/stream', {
+      const response = await fetch(`${backendUrl}/chat/stream`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

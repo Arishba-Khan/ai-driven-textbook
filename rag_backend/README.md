@@ -1,3 +1,14 @@
+---
+title: Rag Chatbot
+emoji: 🤖
+colorFrom: blue
+colorTo: indigo
+sdk: docker
+sdk_version: "1.0.0"
+app_file: app/main.py
+pinned: false
+---
+
 # RAG Chatbot Backend Service
 
 RAG Chatbot Backend Service for Physical AI & Humanoid Robotics Textbook

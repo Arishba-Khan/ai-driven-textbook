@@ -9,6 +9,10 @@ const config: Config = {
   tagline: 'A complete textbook on Physical AI paired with an intelligent chatbot that helps you understand every concept clearly and quickly.',
   favicon: 'img/favicon.ico',
 
+  customFields: {
+    ragBackendUrl: process.env.RAG_BACKEND_URL || 'https://arishbakhan-rag-chatbot.hf.space',
+  },
+
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
     v4: true, // Improve compatibility with the upcoming Docusaurus v4
