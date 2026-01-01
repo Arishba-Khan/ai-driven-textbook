@@ -1,5 +1,6 @@
 import React from 'react';
 import { useAuth } from './AuthProvider';
+import styles from './auth.module.css';
 
 const NavbarAuth: React.FC = () => {
   const { user, signOut, loading } = useAuth();
@@ -17,7 +18,7 @@ const NavbarAuth: React.FC = () => {
         <ul className="dropdown__menu">
           <li>
             <button 
-              className="dropdown__link"
+              className={styles.signOutButton}
               onClick={(e) => {
                 e.preventDefault();
                 signOut();
@@ -33,9 +34,9 @@ const NavbarAuth: React.FC = () => {
 
   return (
     <div className="navbar__item">
-      <div className="navbar__links">
-        <a className="navbar__link" href="/signin">Sign In</a>
-        <a className="button button--primary button--outline navbar__link" href="/signup">Sign Up</a>
+      <div className={styles.navContainer}>
+        <a className={styles.navSignIn} href="/signin">Sign In</a>
+        <a className={styles.navSignUp} href="/signup">Sign Up</a>
       </div>
     </div>
   );

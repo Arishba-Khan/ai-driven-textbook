@@ -35,6 +35,17 @@ Requires-Dist: mypy>=1.4.1; extra == "dev"
 Requires-Dist: isort>=5.12.0; extra == "dev"
 Requires-Dist: pre-commit>=3.3.3; extra == "dev"
 
+---
+title: Rag Chatbot
+emoji: 🤖
+colorFrom: blue
+colorTo: indigo
+sdk: docker
+sdk_version: "1.0.0"
+app_file: app/main.py
+pinned: false
+---
+
 # RAG Chatbot Backend Service
 
 RAG Chatbot Backend Service for Physical AI & Humanoid Robotics Textbook

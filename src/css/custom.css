@@ -4,183 +4,147 @@
  * work well for content-centric websites.
  */
 
-/* You can override the default Infima variables here. */
+/* 
+   Creatiwise Aesthetic - Refined:
+   - Primary: #000000
+   - Background: #ffffff
+   - Text: #1a1a1a (Dark Grey/Near Black)
+   - Font: Montserrat
+*/
+
+/* Import Montserrat */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
-  --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  /* Typography */
+  --ifm-font-family-base: 'Montserrat', system-ui, -apple-system, sans-serif;
+  --ifm-heading-font-family: 'Montserrat', sans-serif;
+  --ifm-heading-font-weight: 700; /* Bold Headings */
+  --ifm-font-weight-base: 400;    /* Normal Body */
+
+  /* Colors */
+  --ifm-color-primary: #000000;
+  --ifm-color-primary-dark: #1a1a1a;
+  
+  --ifm-background-color: #ffffff;
+  --ifm-background-surface-color: #ffffff;
+  
+  --ifm-font-color-base: #1a1a1a; /* Dark Grey close to black */
+  --ifm-color-content: #1a1a1a;
+  
+  --ifm-navbar-height: 80px;
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
+/* 
+   Dark Mode Inversion (Switch Black <-> White)
+*/
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
-}
-
-/* Dark mode specific styles */
-[data-theme='dark'] {
-  /* Set dark mode background to dark grey */
-  --ifm-background-color: #1a1a1a;
-  --ifm-background-surface-color: #1a1a1a;
-
-  /* White text for dark mode */
-  --ifm-color-content: #ffffff;
-  --ifm-color-content-secondary: #ffffff;
+  --ifm-color-primary: #ffffff; /* Primary becomes White */
+  --ifm-background-color: #000000;
+  --ifm-background-surface-color: #000000;
   --ifm-font-color-base: #ffffff;
-  --ifm-global-color: #ffffff;
-  --ifm-heading-color: #ffffff;
-  --ifm-toc-color: #ffffff;
-  --ifm-blockquote-color: #ffffff;
-  --ifm-link-color: #a7d0ff;
-  --ifm-link-hover-color: #ffffff;
-
-  /* Adjust code block colors */
-  --ifm-code-background: rgba(50, 50, 50, 0.4);
-  --ifm-pre-background: #0a0a0a;
-
-  /* Card and surface colors */
-  --ifm-card-background-color: rgba(40, 40, 40, 0.8);
-  --ifm-hover-overlay: rgba(255, 255, 255, 0.05);
-
-  /* Border colors */
-  --ifm-color-emphasis-300: rgba(255, 255, 255, 0.2);
-  --ifm-color-emphasis-500: rgba(255, 255, 255, 0.4);
-  --ifm-color-emphasis-700: rgba(255, 255, 255, 0.6);
+  --ifm-color-content: #ffffff;
+  
+  --ifm-link-color: #ffffff;
+  --ifm-card-background-color: #000000;
+  border-color: #333333;
 }
 
-/* Apply dark mode background with subtle abstract gradient */
 [data-theme='dark'] body {
-  background:
-    linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 100%);
-  position: relative;
-  overflow-x: hidden;
+  background: #000000 !important;
 }
-
-/* Abstract black and white gradient texture */
 [data-theme='dark'] body::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background:
-    radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.03) 0%, transparent 15%),
-    radial-gradient(circle at 90% 80%, rgba(0, 0, 0, 0.15) 0%, transparent 20%),
-    radial-gradient(circle at 30% 40%, rgba(255, 255, 255, 0.02) 0%, transparent 10%),
-    radial-gradient(circle at 70% 30%, rgba(0, 0, 0, 0.1) 0%, transparent 15%),
-    radial-gradient(circle at 50% 70%, rgba(255, 255, 255, 0.03) 0%, transparent 18%),
-    radial-gradient(circle at 80% 20%, rgba(0, 0, 0, 0.08) 0%, transparent 12%);
-  z-index: -1;
-  pointer-events: none;
+  display: none;
 }
 
-/* Ensure all text elements are white in dark mode */
-[data-theme='dark'] {
-  color: #ffffff;
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--ifm-heading-font-family);
+  font-weight: 700 !important; /* Bold */
+  color: #000000 !important;
 }
 
-[data-theme='dark'] h1,
-[data-theme='dark'] h2,
-[data-theme='dark'] h3,
-[data-theme='dark'] h4,
-[data-theme='dark'] h5,
+[data-theme='dark'] h1, 
+[data-theme='dark'] h2, 
+[data-theme='dark'] h3, 
+[data-theme='dark'] h4, 
+[data-theme='dark'] h5, 
 [data-theme='dark'] h6 {
-  color: #ffffff;
-}
-
-[data-theme='dark'] p,
-[data-theme='dark'] span,
-[data-theme='dark'] div,
-[data-theme='dark'] li,
-[data-theme='dark'] a,
-[data-theme='dark'] code,
-[data-theme='dark'] pre,
-[data-theme='dark'] .markdown,
-[data-theme='dark'] .hero__title,
-[data-theme='dark'] .hero__subtitle {
   color: #ffffff !important;
 }
 
-/* Adjust link colors */
-[data-theme='dark'] a:not(.button, .menu__link, .navbar__link, .pagination-nav__link, .footer__link-item) {
-  color: #a7d0ff;
-}
-
-[data-theme='dark'] a:not(.button, .menu__link, .navbar__link, .pagination-nav__link, .footer__link-item):hover {
-  color: #ffffff;
-}
-
-/* Adjust code block text color */
-[data-theme='dark'] code {
-  color: #d4d4d4;
-  background-color: rgba(50, 50, 50, 0.4);
-}
-
-[data-theme='dark'] pre code {
-  color: #ffffff;
-}
-
-/* Glass morphism effect for navbar */
+/* Navbar Styling */
 .navbar {
-  background: rgba(0, 0, 0, 0.5) !important;
-  backdrop-filter: blur(12px) !important;
-  -webkit-backdrop-filter: blur(12px) !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: #ffffff !important;
+  box-shadow: none !important;
+  border-bottom: 1px solid #f0f0f0;
+  padding: 1rem 2rem;
 }
 
-/* Glass morphism effect for footer */
+[data-theme='dark'] .navbar {
+  background-color: #000000 !important;
+  border-bottom: 1px solid #333333;
+}
+
+.navbar__brand {
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: #000000 !important;
+}
+
+[data-theme='dark'] .navbar__brand {
+  color: #ffffff !important;
+}
+
+.navbar__item, .navbar__link {
+  color: #1a1a1a !important;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+[data-theme='dark'] .navbar__item, 
+[data-theme='dark'] .navbar__link {
+  color: #ffffff !important;
+}
+
+/* Footer Styling */
 .footer {
-  background: rgba(0, 0, 0, 0.5) !important;
-  backdrop-filter: blur(12px) !important;
-  -webkit-backdrop-filter: blur(12px) !important;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  padding: 2rem 2rem;
+  border-top: 1px solid #333333;
 }
 
-/* Hero section styling to match main background */
+
+
+.footer__title {
+  color: #ffffff !important;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+
+
+.footer__link-item, .footer__copyright {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+
+
+.footer__link-item:hover {
+  color: #ffffff !important;
+  text-decoration: none;
+}
+
+
+
+/* Hero Section Base */
 .hero {
-  background-color: #1a1a1a;
+  background-color: #ffffff !important;
+  padding: 4rem 0;
 }
 
 [data-theme='dark'] .hero {
-  background-color: #1a1a1a;
-  color: #ffffff;
-}
-
-/* Sidebar styling for dark mode - changed from black to default grey and apply gradient bg */
-[data-theme='dark'] .menu {
-  background:
-    linear-gradient(135deg, rgba(40, 40, 40, 0.8) 0%, rgba(30, 30, 30, 0.8) 100%) !important;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  /* Add abstract pattern to sidebar */
-  background-image:
-    linear-gradient(135deg, rgba(40, 40, 40, 0.8) 0%, rgba(30, 30, 30, 0.8) 100%),
-    radial-gradient(circle at 15% 25%, rgba(255, 255, 255, 0.02) 0%, transparent 10%),
-    radial-gradient(circle at 85% 75%, rgba(0, 0, 0, 0.1) 0%, transparent 15%);
-}
-
-/* Card styling for dark mode */
-[data-theme='dark'] .card {
-  background-color: rgba(20, 20, 20, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-}
-
-/* Hide navbar logo */
-.navbar__logo {
-  display: none !important;
+  background-color: #000000 !important;
+  color: #ffffff !important;
 }

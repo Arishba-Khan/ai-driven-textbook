@@ -5,6 +5,7 @@ import Heading from '@theme/Heading';
 import styles from './styles.module.css';
 
 type ModuleItem = {
+  step: string;
   title: string;
   description: ReactNode;
   path: string;
@@ -12,7 +13,8 @@ type ModuleItem = {
 
 const ModuleList: ModuleItem[] = [
   {
-    title: 'Module 1: The Robotic Nervous System (ROS 2)',
+    step: '01',
+    title: 'The Robotic Nervous System (ROS 2)',
     description: (
       <>
         Understanding ROS 2 fundamentals including nodes, topics, publishers, subscribers, services, and actions for humanoid robots.
@@ -21,7 +23,8 @@ const ModuleList: ModuleItem[] = [
     path: '/docs/module-1/introduction-to-ros2'
   },
   {
-    title: 'Module 2: The Digital Twin (Gazebo & Unity)',
+    step: '02',
+    title: 'The Digital Twin (Gazebo & Unity)',
     description: (
       <>
         Simulation environments for robotics including URDF/SDF robot descriptions, physics simulation, and sensor simulation techniques.
@@ -30,7 +33,8 @@ const ModuleList: ModuleItem[] = [
     path: '/docs/module-2/introduction-to-gazebo'
   },
   {
-    title: 'Module 3: The AI-Robot Brain (NVIDIA Isaac™)',
+    step: '03',
+    title: 'The AI-Robot Brain (NVIDIA Isaac™)',
     description: (
       <>
         AI-powered navigation and perception systems using Isaac Sim, VSLAM navigation, and sim-to-real transfer techniques.
@@ -39,7 +43,8 @@ const ModuleList: ModuleItem[] = [
     path: '/docs/module-3/introduction-to-nvidia-isaac-sim'
   },
   {
-    title: 'Module 4: Vision-Language-Action (VLA)',
+    step: '04',
+    title: 'Vision-Language-Action (VLA) Systems',
     description: (
       <>
         Vision-Language-Action integration for cognitive robots using voice-to-action systems and LLM-based cognitive planning.
@@ -49,11 +54,12 @@ const ModuleList: ModuleItem[] = [
   },
 ];
 
-function Module({title, description, path}: ModuleItem) {
+function Module({step, title, description, path}: ModuleItem) {
   return (
     <div className={clsx('col col--3', styles.moduleCard)}>
       <Link to={path} className={styles.moduleLink}>
         <div className={clsx(styles.moduleBox)}>
+          <div className={styles.stepNumber}>{step}</div>
           <Heading as="h3" className={styles.moduleTitle}>{title}</Heading>
           <p className={styles.moduleDescription}>{description}</p>
         </div>
@@ -112,6 +118,12 @@ export default function HomepageFeatures(): ReactNode {
     <>
       <section className={styles.features}>
         <div className="container">
+          <div className={styles.sectionHeader}>
+            <Heading as="h2" className={styles.sectionTitle}>
+              Let us show you how we drive your learning to new heights
+            </Heading>
+            <p>Master Physical AI through a structured 4-step process designed for engineers.</p>
+          </div>
           <div className="row">
             {ModuleList.map((props, idx) => (
               <Module key={idx} {...props} />

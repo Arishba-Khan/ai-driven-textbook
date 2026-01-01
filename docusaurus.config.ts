@@ -77,8 +77,7 @@ const config: Config = {
           label: 'Textbook',
         },
         {
-          href: 'https://github.com/facebook/docusaurus',
-          label: 'GitHub',
+          type: 'custom-navbarAuth',
           position: 'right',
         },
       ],
@@ -92,6 +91,10 @@ const config: Config = {
             {
               label: 'GitHub',
               href: 'https://github.com/Arishba-Khan', // Replace with your actual GitHub username
+            },
+            {
+              label: 'LinkedIn',
+              href: 'https://www.linkedin.com/in/arishbakhan/',
             },
           ],
         },

@@ -10,10 +10,46 @@
   overflow: hidden;
 }
 
-@media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: 2rem;
-  }
+/* Centered Hero Layout */
+.heroContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.heroContent {
+  text-align: center;
+  max-width: 800px; /* Constrain width */
+  width: 100%;
+}
+
+.heroTagline {
+  font-family: var(--ifm-font-family-base);
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  /* Tagline color follows text color/primary */
+  opacity: 0.8; 
+}
+
+.heroTitle {
+  font-size: 3.5rem;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  font-weight: 800;
+}
+
+.heroSubtitle {
+  font-size: 1.25rem;
+  margin: 0 auto 2rem auto;
+  opacity: 0.8;
+  max-width: 600px;
 }
 
 .buttons {
@@ -22,21 +58,48 @@
   justify-content: center;
 }
 
-.glassMorphismButton {
-  background: rgba(255, 255, 255, 0.15) !important;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+/* Pill Button Style - Light Mode (Black Button) */
+.pillButton {
+  display: inline-block;
+  background-color: #000000;
+  color: #ffffff !important;
+  border-radius: 50px;
+  padding: 1rem 2.5rem;
+  font-size: 1rem;
+  font-weight: 600;
   transition: all 0.3s ease;
-  color: white !important;
+  border: 2px solid #000000;
   text-decoration: none !important;
-  font-weight: 500;
+  cursor: pointer;
 }
 
-.glassMorphismButton:hover {
-  background: rgba(255, 255, 255, 0.25) !important;
-  transform: scale(1.05);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+.pillButton:hover {
+  background-color: #ffffff;
+  color: #000000 !important;
+  border-color: #000000;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Dark Mode Overrides - Button (White Button) */
+:global([data-theme='dark']) .pillButton {
+  background-color: #ffffff;
+  color: #000000 !important;
+  border-color: #ffffff;
+}
+
+:global([data-theme='dark']) .pillButton:hover {
+  background-color: #000000;
+  color: #ffffff !important;
+  border-color: #ffffff;
+  box-shadow: 0 5px 15px rgba(255,255,255,0.1);
+}
+
+@media screen and (max-width: 996px) {
+  .heroBanner {
+    padding: 2rem;
+  }
+  .heroTitle {
+    font-size: 2.5rem;
+  }
 }

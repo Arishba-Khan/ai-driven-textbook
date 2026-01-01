@@ -1,0 +1,357 @@
+.authCard {
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 40px;
+  width: 100%;
+  max-width: 440px; /* Reference looks slim */
+  margin: 0 auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* Very soft shadow */
+  border: 1px solid #f0f0f0;
+  text-align: center;
+  font-family: var(--ifm-font-family-base);
+}
+
+:global([data-theme='dark']) .authCard {
+  background-color: #000000;
+  border-color: #333333;
+  color: #ffffff;
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.05);
+}
+
+.iconHeader {
+  width: 60px;
+  height: 60px;
+  background-color: #f5f5f5;
+  border-radius: 16px;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+}
+
+:global([data-theme='dark']) .iconHeader {
+  background-color: #1a1a1a;
+  color: #fff;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #000000;
+}
+
+:global([data-theme='dark']) .title {
+  color: #ffffff;
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  color: #666666;
+  margin-bottom: 30px;
+}
+
+:global([data-theme='dark']) .subtitle {
+  color: #888888;
+}
+
+.formGroup {
+  margin-bottom: 16px;
+  position: relative;
+  text-align: left;
+}
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.inputIcon {
+  position: absolute;
+  left: 16px;
+  color: #999;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.authInput {
+  width: 100%;
+  background-color: #f5f5f5;
+  border: 1px solid transparent; /* No border by default */
+  border-radius: 12px;
+  padding: 14px 16px 14px 44px; /* Space for icon */
+  font-size: 0.95rem;
+  color: #333;
+  transition: all 0.2s;
+  outline: none;
+}
+
+:global([data-theme='dark']) .authInput {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  border-color: transparent;
+}
+
+.authInput:focus {
+  background-color: #ffffff;
+  border-color: #000000;
+  box-shadow: 0 0 0 4px rgba(0,0,0,0.05);
+}
+
+:global([data-theme='dark']) .authInput:focus {
+  background-color: #000000;
+  border-color: #ffffff;
+  box-shadow: 0 0 0 4px rgba(255,255,255,0.05);
+}
+
+.eyeButton {
+  position: absolute;
+  right: 16px;
+  background: none;
+  border: none;
+  color: #999;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.submitButton {
+  width: 100%;
+  background-color: #000000;
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  padding: 14px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: all 0.2s;
+}
+
+:global([data-theme='dark']) .submitButton {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.submitButton:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.submitButton:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Divider */
+.divider {
+  margin: 24px 0;
+  position: relative;
+  text-align: center;
+}
+
+.divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: #e0e0e0;
+  z-index: 0;
+}
+
+:global([data-theme='dark']) .divider::before {
+  background-color: #333333;
+}
+
+.dividerText {
+  background-color: #ffffff; /* Matches card bg */
+  padding: 0 10px;
+  color: #999;
+  font-size: 0.85rem;
+  position: relative;
+  z-index: 1;
+}
+
+:global([data-theme='dark']) .dividerText {
+  background-color: #000000;
+  color: #666;
+}
+
+/* Social Buttons */
+.socialGroup {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.socialButton {
+  width: 60px;
+  height: 48px;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+:global([data-theme='dark']) .socialButton {
+  background-color: #1a1a1a;
+  border-color: #333333;
+}
+
+.socialButton:hover {
+  background-color: #f9f9f9;
+}
+
+:global([data-theme='dark']) .socialButton:hover {
+  background-color: #2a2a2a;
+}
+
+.footerText {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 16px;
+}
+
+.footerLink {
+  color: #000000;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+:global([data-theme='dark']) .footerLink {
+  color: #ffffff;
+}
+
+.footerLink:hover {
+  text-decoration: underline;
+}
+
+/* Alert */
+.errorAlert {
+  background-color: #ffebee;
+  color: #d32f2f;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  margin-bottom: 16px;
+  text-align: center;
+  border: 1px solid #ffcdd2;
+}
+
+:global([data-theme='dark']) .errorAlert {
+  background-color: rgba(211, 47, 47, 0.1);
+  border-color: rgba(211, 47, 47, 0.3);
+  color: #ffcdd2;
+}
+
+/* Sign Out Button */
+.signOutButton {
+  display: block;
+  width: calc(100% - 24px);
+  margin: 6px 12px;
+  background-color: #000000;
+  color: #ffffff !important;
+  border-radius: 50px;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-align: center;
+  border: 2px solid #000000;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.signOutButton:hover {
+  background-color: #ffffff;
+  color: #000000 !important;
+  border-color: #000000;
+  transform: translateY(-1px);
+}
+
+:global([data-theme='dark']) .signOutButton {
+  background-color: #ffffff;
+  color: #000000 !important;
+  border-color: #ffffff;
+}
+
+:global([data-theme='dark']) .signOutButton:hover {
+  background-color: #000000;
+  color: #ffffff !important;
+  border-color: #ffffff;
+}
+
+/* Navbar Links */
+.navContainer {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.navSignIn {
+  color: #000000;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.95rem;
+  padding: 8px;
+  transition: all 0.2s ease;
+  display: inline-block;
+}
+
+.navSignIn:hover {
+  text-decoration: none;
+  opacity: 0.6;
+  transform: translateY(-1px);
+  color: #000000;
+  background-color: transparent;
+}
+
+:global([data-theme='dark']) .navSignIn {
+  color: #ffffff;
+}
+
+:global([data-theme='dark']) .navSignIn:hover {
+  color: #ffffff;
+  opacity: 0.8;
+  background-color: transparent;
+}
+
+.navSignUp {
+  display: inline-block;
+  background-color: transparent;
+  color: #000000 !important;
+  border: 2px solid #000000;
+  border-radius: 50px;
+  padding: 0.5rem 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none !important;
+  transition: all 0.2s ease;
+}
+
+.navSignUp:hover {
+  background-color: #000000;
+  color: #ffffff !important;
+  transform: translateY(-1px);
+}
+
+:global([data-theme='dark']) .navSignUp {
+  color: #ffffff !important;
+  border-color: #ffffff;
+}
+
+:global([data-theme='dark']) .navSignUp:hover {
+  background-color: #ffffff;
+  color: #000000 !important;
+}

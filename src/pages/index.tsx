@@ -11,19 +11,29 @@ import styles from './index.module.css';
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
   return (
-    <header className={clsx('hero hero--primary', styles.heroBanner)}>
-      <div className="container">
-        <Heading as="h1" className="hero__title">
-          {siteConfig.title}
-        </Heading>
-        <p className="hero__subtitle">A complete textbook on Physical AI paired with an intelligent chatbot that helps you understand every concept clearly and quickly.</p>
-        <div className={styles.buttons}>
-          <Link
-            className={clsx('button button--secondary button--lg', styles.glassMorphismButton)}
-            to="/docs/intro">
-            Start Reading
-          </Link>
+    <header className={clsx('hero', styles.heroBanner)}>
+      <div className={clsx('container', styles.heroContainer)}>
+        
+        {/* Left Column: Text Content */}
+        <div className={styles.heroContent}>
+          <div className={styles.heroTagline}>Welcome to</div>
+          <Heading as="h1" className={styles.heroTitle}>
+            <span>Physical AI Textbook</span>
+          </Heading>
+          <p className={styles.heroSubtitle}>
+             A complete textbook on Physical AI paired with an intelligent chatbot that helps you understand every concept clearly and quickly.
+          </p>
+          <div className={styles.buttons}>
+            <Link
+              className={styles.pillButton}
+              to="/docs/intro">
+              Start Reading
+            </Link>
+          </div>
         </div>
+
+        {/* Removed Image Container as requested */}
+
       </div>
     </header>
   );
@@ -33,8 +43,8 @@ export default function Home(): ReactNode {
   const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
+      title={`${siteConfig.title}`}
+      description="Physical AI Textbook and Chatbot">
       <HomepageHeader />
       <main>
         <HomepageFeatures />

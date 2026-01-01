@@ -1,389 +1,217 @@
 .features {
-  display: flex;
-  align-items: center;
-  padding: 2rem 0;
-  width: 100%;
+  padding: 4rem 0;
+  background-color: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+:global([data-theme='dark']) .features {
+  background-color: #000000;
+}
+
+/* Introduction Text */
+.sectionHeader {
+  max-width: 600px;
+  margin-bottom: 4rem;
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
 }
 
 .moduleCard {
-  padding: 1rem !important;
+  position: relative;
+  margin-bottom: 2rem;
+  transition: transform 0.3s ease;
 }
 
 .moduleLink {
-  text-decoration: none;
+  text-decoration: none !important; 
   display: block;
   height: 100%;
 }
 
 .moduleBox {
-  background-color: rgba(40, 40, 40, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
-  padding: 1.5rem;
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 2.5rem;
   height: 100%;
-  color: white;
+  color: #000000;
   display: flex;
   flex-direction: column;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08); /* Soft diffuse shadow */
+  border: 1px solid #f0f0f0;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  min-height: 320px;
 }
 
+/* Dark Mode Card Overrides */
+:global([data-theme='dark']) .moduleBox {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  border-color: #333333;
+  box-shadow: 0 10px 40px rgba(255, 255, 255, 0.05);
+}
+
+:global([data-theme='dark']) .stepNumber {
+  color: #ffffff;
+  opacity: 0.5;
+}
+
+:global([data-theme='dark']) .moduleTitle {
+  color: #ffffff !important;
+}
+
+:global([data-theme='dark']) .moduleDescription {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+:global([data-theme='dark']) .moduleLink:hover .moduleBox {
+  border-color: #ffffff;
+  box-shadow: 0 20px 50px rgba(255, 255, 255, 0.1);
+}
+
+/* Step Number (01, 02...) */
+.stepNumber {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #000000;
+  margin-bottom: 1.5rem;
+  opacity: 0.3;
+}
+
+/* Staggered Rotation Effect */
+.moduleCard:nth-child(odd) .moduleBox {
+  transform: rotate(-2deg);
+}
+
+.moduleCard:nth-child(even) .moduleBox {
+  transform: rotate(2deg);
+  margin-top: 3rem; /* Stagger vertical alignment */
+}
+
+/* Hover Effects */
 .moduleLink:hover .moduleBox {
-  transform: scale(1.05);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  transform: rotate(0deg) scale(1.05) translateY(-10px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  border-color: #000000;
+  z-index: 10;
 }
 
 .moduleTitle {
-  color: white !important;
-  font-size: 1.1rem;
+  color: #000000 !important;
+  font-size: 1.5rem;
+  font-weight: 700;
   margin-bottom: 1rem;
-  text-align: left;
+  line-height: 1.2;
 }
 
 .moduleDescription {
-  color: white;
-  text-align: left;
-  margin: 0;
-  flex-grow: 1;
-  font-size: 0.9rem;
+  color: #666666;
+  font-size: 0.95rem;
+  line-height: 1.6;
 }
 
-/* Chatbot section styling */
+/* Dashed Connector Lines (Decorative) */
+.features::before {
+  content: '';
+  position: absolute;
+  top: 25%; /* Moved down from 20% */
+  left: 10%;
+  width: 80%;
+  height: 60%;
+  border: 2px dashed #e0e0e0;
+  border-radius: 50%;
+  z-index: 0;
+  pointer-events: none;
+  display: none; /* Hide on mobile/small screens */
+  opacity: 0.6; /* Make it more subtle */
+}
+
+@media screen and (min-width: 996px) {
+  .features::before {
+    display: block;
+  }
+}
+
+/* Chatbot Section - High Contrast Dark */
 .chatbotSection {
-  padding: 3rem 0;
-  width: 100%;
-  margin-top: 2rem;
-}
-
-.chatbotCard {
-  padding: 0 !important;
+  background-color: #000000;
+  color: #ffffff;
+  padding: 6rem 0;
+  position: relative;
+  overflow: hidden;
+  border-radius: 30px;
+  margin: 2rem;
 }
 
 .chatbotBox {
-  background-color: rgba(40, 40, 40, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
-  padding: 2rem;
-  color: white;
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .chatbotTitle {
-  color: white !important;
-  text-align: center;
-  margin-bottom: 1.5rem;
-  font-size: 1.8rem;
+  color: #ffffff !important;
+  font-size: 3rem;
+  margin-bottom: 2rem;
 }
 
 .chatbotDescription {
-  text-align: center;
-  margin-bottom: 2rem;
-  font-size: 1.1rem;
-  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.2rem;
+  margin-bottom: 3rem;
 }
 
 .chatbotFeatures {
   display: flex;
-  justify-content: space-around;
+  gap: 2rem;
+  justify-content: center;
   flex-wrap: wrap;
-  gap: 1rem;
 }
 
 .featureItem {
-  display: flex;
-  flex: 1;
-  min-width: 250px;
-  align-items: flex-start;
-  padding: 1rem;
-  background-color: rgba(30, 30, 30, 0.4);
-  border-radius: 6px;
-}
-
-.featureIcon {
-  font-size: 1.8rem;
-  margin-right: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 1.5rem 2rem;
+  border-radius: 50px; /* Pill shape tags */
+  border: 1px solid rgba(255, 255, 255, 0.2);
   display: flex;
   align-items: center;
-}
-
-.featureText {
-  flex: 1;
+  gap: 1rem;
 }
 
 .featureText strong {
-  display: block;
-  margin-bottom: 0.5rem;
-  color: #a7d0ff;
+  color: #ffffff;
+  font-size: 1rem;
 }
 
 .featureText p {
-  margin: 0;
-  color: #cccccc;
+  display: none; /* Hide description for cleaner pill look */
 }
 
-/* Responsive adjustments for major device types */
-/* Large desktop screens */
-@media screen and (min-width: 1200px) {
-  .chatbotFeatures {
-    gap: 2rem;
+/* Responsive */
+@media screen and (max-width: 996px) {
+  .moduleCard:nth-child(even) .moduleBox {
+    margin-top: 0;
   }
-
-  .featureItem {
-    min-width: 280px;
-  }
-}
-
-/* Desktop screens */
-@media screen and (max-width: 1199px) and (min-width: 996px) {
-  .moduleCard {
-    padding: 0.8rem !important;
-    margin-bottom: 1rem;
-  }
-
+  
   .moduleBox {
-    padding: 1.2rem;
+    min-height: auto;
   }
 
-  .moduleTitle {
-    font-size: 1rem;
+  .sectionTitle {
+    font-size: 2rem;
   }
-
-  .moduleDescription {
-    font-size: 0.85rem;
-  }
-
-  .chatbotTitle {
-    font-size: 1.6rem;
-  }
-
-  .chatbotDescription {
-    font-size: 1rem;
-  }
-
-  .chatbotFeatures {
-    gap: 1.5rem;
-  }
-
-  .featureItem {
-    min-width: 250px;
-  }
-}
-
-/* Tablets */
-@media screen and (max-width: 995px) and (min-width: 768px) {
-  .features {
-    padding: 1.5rem 0;
-  }
-
-  .moduleCard {
-    flex: 0 0 50%;
-    padding: 0.7rem !important;
-    margin-bottom: 1rem;
-  }
-
-  .moduleBox {
-    padding: 1rem;
-  }
-
-  .moduleTitle {
-    font-size: 0.95rem;
-  }
-
-  .moduleDescription {
-    font-size: 0.8rem;
-  }
-
+  
   .chatbotSection {
-    padding: 2rem 0;
-  }
-
-  .chatbotBox {
-    padding: 1.5rem;
-  }
-
-  .chatbotTitle {
-    font-size: 1.5rem;
-  }
-
-  .chatbotDescription {
-    font-size: 0.95rem;
-  }
-
-  .chatbotFeatures {
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .featureItem {
-    min-width: auto;
-  }
-}
-
-/* Mobile landscape */
-@media screen and (max-width: 767px) and (min-width: 576px) {
-  .features {
-    padding: 1.5rem 0;
-  }
-
-  .moduleCard {
-    flex: 0 0 50%;
-    padding: 0.6rem !important;
-    margin-bottom: 1rem;
-  }
-
-  .moduleBox {
-    padding: 0.9rem;
-  }
-
-  .moduleTitle {
-    font-size: 0.9rem;
-  }
-
-  .moduleDescription {
-    font-size: 0.75rem;
-  }
-
-  .chatbotSection {
-    padding: 2rem 0;
-  }
-
-  .chatbotBox {
-    padding: 1.3rem;
-  }
-
-  .chatbotTitle {
-    font-size: 1.4rem;
-  }
-
-  .chatbotDescription {
-    font-size: 0.9rem;
-  }
-
-  .chatbotFeatures {
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .featureItem {
-    min-width: auto;
-    padding: 0.8rem;
-  }
-
-  .featureIcon {
-    font-size: 1.6rem;
-  }
-}
-
-/* Mobile portrait */
-@media screen and (max-width: 575px) {
-  .features {
-    padding: 1.2rem 0;
-  }
-
-  .moduleCard {
-    flex: 0 0 100%;
-    padding: 0.5rem !important;
-    margin-bottom: 1rem;
-  }
-
-  .moduleBox {
-    padding: 0.8rem;
-  }
-
-  .moduleTitle {
-    font-size: 0.9rem;
-  }
-
-  .moduleDescription {
-    font-size: 0.75rem;
-  }
-
-  .chatbotSection {
-    padding: 1.8rem 0;
-  }
-
-  .chatbotBox {
-    padding: 1.2rem;
-  }
-
-  .chatbotTitle {
-    font-size: 1.3rem;
-  }
-
-  .chatbotDescription {
-    font-size: 0.85rem;
-  }
-
-  .chatbotFeatures {
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .featureItem {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    min-width: auto;
-    padding: 1rem;
-  }
-
-  .featureIcon {
-    margin-right: 0;
-    margin-bottom: 0.5rem;
-    font-size: 1.5rem;
-  }
-
-  .featureText {
-    flex: none;
-  }
-
-  .featureText strong {
-    font-size: 1rem;
-  }
-
-  .featureText p {
-    font-size: 0.85rem;
-  }
-}
-
-/* Small devices (very small phones) */
-@media screen and (max-width: 359px) {
-  .moduleBox {
-    padding: 0.7rem;
-  }
-
-  .moduleTitle {
-    font-size: 0.85rem;
-  }
-
-  .moduleDescription {
-    font-size: 0.7rem;
-  }
-
-  .chatbotBox {
-    padding: 1rem;
-  }
-
-  .chatbotTitle {
-    font-size: 1.2rem;
-  }
-
-  .chatbotDescription {
-    font-size: 0.8rem;
-  }
-
-  .featureItem {
-    padding: 0.8rem;
-  }
-
-  .featureText strong {
-    font-size: 0.9rem;
-  }
-
-  .featureText p {
-    font-size: 0.8rem;
+    margin: 1rem;
+    border-radius: 20px;
   }
 }

@@ -24,14 +24,9 @@ const ChatWidget: React.FC = () => {
   const { siteConfig } = useDocusaurusContext();
   const backendUrl = siteConfig.customFields?.ragBackendUrl as string;
   const [isOpen, setIsOpen] = useState(false);
-  const [sessionId] = useState(generateSessionId);
-  const [messages, setMessages] = useState<Message[]>([
-    {
-      id: '1',
-      role: 'assistant',
-      content: 'Hello! I am your AI assistant for the Physical AI & Humanoid Robotics textbook. How can I help you today?'
-    }
-  ]);
+  const [sessionId, setSessionId] = useState(generateSessionId);
+  // Start empty to show the Welcome screen
+  const [messages, setMessages] = useState<Message[]>([]);
   const [inputValue, setInputValue] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -46,6 +41,11 @@ const ChatWidget: React.FC = () => {
 
   const toggleChat = () => {
     setIsOpen(!isOpen);
+  };
+
+  const handleClearChat = () => {
+    setMessages([]);
+    setSessionId(generateSessionId());
   };
 
   const handleSendMessage = async (e?: React.FormEvent) => {
@@ -159,41 +159,69 @@ const ChatWidget: React.FC = () => {
       {isOpen && (
         <div className={styles.chatWindow}>
           <div className={styles.chatHeader}>
-            <h3>AI Assistant</h3>
-            <button className={styles.closeButton} onClick={toggleChat} aria-label="Close chat">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-              </svg>
-            </button>
+            <div className={styles.headerInfo}>
+               <div>
+                 <h3>Chatterbox</h3>
+                 <span className={styles.statusIndicator}>
+                   <span className={styles.statusDot}></span> Online
+                 </span>
+               </div>
+            </div>
+            <div className={styles.headerActions}>
+               <button className={styles.iconButton} onClick={handleClearChat} title="Clear Chat">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <polyline points="3 6 5 6 21 6"></polyline>
+                  <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                </svg>
+              </button>
+              <button className={styles.iconButton} onClick={toggleChat} aria-label="Close chat">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <line x1="18" y1="6" x2="6" y2="18"></line>
+                  <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+              </button>
+            </div>
           </div>
           
-          <div className={styles.messagesContainer}>
-            {messages.map((message) => (
-              <div 
-                key={message.id} 
-                className={clsx(styles.message, {
-                  [styles.userMessage]: message.role === 'user',
-                  [styles.botMessage]: message.role === 'assistant'
-                })}
-              >
-                {message.content}
-                {message.sources && message.sources.length > 0 && (
-                  <div className={styles.sourcesContainer}>
-                    <p className={styles.sourcesTitle}>Sources:</p>
-                    <ul className={styles.sourcesList}>
-                      {message.sources.map((source, idx) => (
-                        <li key={idx} className={styles.sourceItem}>
-                          {source.title} (Page {source.page})
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
+          <div className={styles.chatBody}>
+            {messages.length === 0 ? (
+              <div className={styles.welcomeContainer}>
+                <div className={styles.welcomeTitle}>Hi! I'm Chatterbox. 👋</div>
+                <p className={styles.welcomeText}>
+                  I'm your smart companion for learning Physical AI & Humanoid Robotics.
+                </p>
+                <p className={styles.welcomeSubtext}>
+                  Type a question below to start learning!
+                </p>
               </div>
-            ))}
-            {/* Removed separate current typing indicator since we stream directly into the last message */}
-            <div ref={messagesEndRef} />
+            ) : (
+              <div className={styles.messagesContainer}>
+                {messages.map((message) => (
+                  <div 
+                    key={message.id} 
+                    className={clsx(styles.message, {
+                      [styles.userMessage]: message.role === 'user',
+                      [styles.botMessage]: message.role === 'assistant'
+                    })}
+                  >
+                    {message.content}
+                    {message.sources && message.sources.length > 0 && (
+                      <div className={styles.sourcesContainer}>
+                        <p className={styles.sourcesTitle}>Sources:</p>
+                        <ul className={styles.sourcesList}>
+                          {message.sources.map((source, idx) => (
+                            <li key={idx} className={styles.sourceItem}>
+                              {source.title} (Page {source.page})
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                  </div>
+                ))}
+                <div ref={messagesEndRef} />
+              </div>
+            )}
           </div>
 
           <form className={styles.inputArea} onSubmit={handleSendMessage}>
